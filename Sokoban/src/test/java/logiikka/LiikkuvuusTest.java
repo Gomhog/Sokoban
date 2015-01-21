@@ -36,10 +36,12 @@ public class LiikkuvuusTest {
     public void tearDown() {
     }
     
+    @Test
     public void alussaPelaajaPaaseeRuutuihin() {
         assert liikkuvuus.getPaaseekoPelaaja(0,0);
     }
     
+    @Test
     public void alussaPalikkaPaaseeRuutuihin() {
         assert liikkuvuus.getPaaseekoPelaaja(0, 0);
     }

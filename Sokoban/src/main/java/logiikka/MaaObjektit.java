@@ -21,4 +21,18 @@ public class MaaObjektit {
         kytkimet = sijainnit;
         kytkimienMaara = sijainnit.length;
     }
+    
+    public int[][] getKytkimet() {
+        return kytkimet;
+    }
+
+    public int getKytkimienMaara() {
+        return kytkimienMaara;
+    }
+
+    public int[] getUloskaynninSijainti() {
+        return uloskaynninSijainti;
+    }
+    
+    
 }

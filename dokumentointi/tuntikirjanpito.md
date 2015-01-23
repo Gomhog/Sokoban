@@ -1,4 +1,4 @@
-# Keskiviikko 14.1.2015
+﻿# Keskiviikko 14.1.2015
 
 2 h
 
@@ -14,3 +14,17 @@
 * Netbeansin valmistelu, compile error
 * Virhe korjattu hankkimalla uudempi JDK
 * Aihemäärittelyä kirjoitettu
+
+# Keskiviikko 21.1.2015
+
+1 h
+
+* Konfigurointi loppuun
+* Testausluokan tekeminen
+
+# Torstai 22.1.2015
+
+1 h
+
+* Luokkakaavio hahmoteltu
+

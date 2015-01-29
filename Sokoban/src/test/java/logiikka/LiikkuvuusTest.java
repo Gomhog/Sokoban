@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logiikka;
 
 import org.junit.After;
@@ -30,6 +27,7 @@ public class LiikkuvuusTest {
     @Before
     public void setUp() {
         liikkuvuus = new Liikkuvuus(4,5);
+        liikkuvuus.lisaaSeina(2, 2);
     }
     
     @After
@@ -38,11 +36,41 @@ public class LiikkuvuusTest {
     
     @Test
     public void alussaPelaajaPaaseeRuutuihin() {
-        assert liikkuvuus.getPaaseekoPelaaja(0,0);
+        assertTrue(liikkuvuus.getPaaseekoPelaaja(0,0));
     }
     
     @Test
     public void alussaPalikkaPaaseeRuutuihin() {
-        assert liikkuvuus.getPaaseekoPelaaja(0, 0);
+        assertTrue(liikkuvuus.getPaaseekoPelaaja(0, 0));
+    }
+    
+    @Test
+    public void pelaajaEiPaaseYlosUlos() {
+        assertFalse(liikkuvuus.getPaaseekoPelaaja(-1, 0));
+    }
+    
+    @Test
+    public void palikkaEiPaaseAlasUlos() {
+        assertFalse(liikkuvuus.getPaaseekoPalikka(4, 0));
+    }
+    
+    @Test
+    public void pelaajaEiPaaseVasenUlos() {
+        assertFalse(liikkuvuus.getPaaseekoPelaaja(0, -1));
+    }
+    
+    @Test
+    public void palikkaEiPaaseOikeaUlos() {
+        assertFalse(liikkuvuus.getPaaseekoPalikka(0, 5));
+    }
+    
+    @Test
+    public void pelaajaEiPaaseSeinaan() {
+        assertFalse(liikkuvuus.getPaaseekoPelaaja(2, 2));
+    }
+    
+    @Test
+    public void palikkaEiPaaseSeinaan() {
+        assertFalse(liikkuvuus.getPaaseekoPalikka(2, 2));
     }
 }

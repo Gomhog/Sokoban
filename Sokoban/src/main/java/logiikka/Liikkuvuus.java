@@ -1,6 +1,8 @@
 
 package logiikka;
 
+import java.util.Arrays;
+
 
 public class Liikkuvuus {
     private boolean[][] paaseekoPelaaja;
@@ -10,10 +12,9 @@ public class Liikkuvuus {
         paaseekoPelaaja = new boolean[n][m];
         paaseekoPalikka = new boolean[n][m];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                paaseekoPelaaja[i][j] = true;
-                paaseekoPalikka[i][j] = true;
-            }
+            Arrays.fill(paaseekoPelaaja[i], true);
+            Arrays.fill(paaseekoPalikka[i], true);
+            
         }
     }
     
@@ -23,11 +24,20 @@ public class Liikkuvuus {
     }
 
     public boolean getPaaseekoPelaaja(int i, int j) {
-        return paaseekoPelaaja[i][j];
+        try {
+            return paaseekoPelaaja[i][j];
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public boolean getPaaseekoPalikka(int i, int j) {
-        return paaseekoPalikka[i][j];
+        try {
+            return paaseekoPalikka[i][j];
+        } catch (Exception e) {
+            return false;
+        }
+        
     }
     
     

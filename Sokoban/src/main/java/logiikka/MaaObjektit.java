@@ -1,14 +1,18 @@
 
+
 package logiikka;
+
+import java.util.ArrayList;
 
 
 public class MaaObjektit {
     private int kytkimienMaara;
-    private int[][] kytkimet;
+    private ArrayList<int[]> kytkimet;
     private int[] uloskaynninSijainti;
 
     public MaaObjektit() {
         kytkimienMaara = 0;
+        kytkimet = new ArrayList<>();
         uloskaynninSijainti = new int[2];
     }
     
@@ -17,13 +21,13 @@ public class MaaObjektit {
         uloskaynninSijainti[1] = j;
     }
     
-    public void asetaKytkimet(int[][] sijainnit) {
-        kytkimet = sijainnit;
-        kytkimienMaara = sijainnit.length;
+    public void asetaKytkin(int i, int j) {
+        kytkimet.add(new int[]{i,j});
+        kytkimienMaara++;
     }
     
-    public int[][] getKytkimet() {
-        return kytkimet;
+    public int[] getKytkin(int i) {
+        return kytkimet.get(i);
     }
 
     public int getKytkimienMaara() {

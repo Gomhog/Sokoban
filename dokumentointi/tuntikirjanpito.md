@@ -34,4 +34,4 @@
 
 * Peruslogiikka valmis
 * Testejä tehty
-
+* Kaavio

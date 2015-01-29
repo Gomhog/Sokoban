@@ -28,3 +28,10 @@
 
 * Luokkakaavio hahmoteltu
 
+# Torstai 29.1.2015
+
+4 h
+
+* Peruslogiikka valmis
+* Testejä tehty
+

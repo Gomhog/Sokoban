@@ -35,3 +35,10 @@
 * Peruslogiikka valmis
 * Testejä tehty
 * Kaavio
+
+# Perjantai 30.1.2015
+
+1 h
+
+* Tiedostonluvun ensimmäinen versio (ei vielä testattu)
+* Karttojen syntaksi tiedostoissa

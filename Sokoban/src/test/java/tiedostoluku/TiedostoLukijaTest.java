@@ -19,55 +19,56 @@ public class TiedostoLukijaTest {
     
     @BeforeClass
     public static void setUpClass() {
-        Writer toimivaTesti = null;
-        Writer vaaraMerkki = null;
-        Writer pelaajanHuonoSijainti = null;
+        
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+        
+    }
+    
+    @Before
+    public void setUp() {
+        File hakemisto = new File("level");
+        hakemisto.mkdir();
+        PrintWriter toimivaTesti = null;
+        PrintWriter vaaraMerkki = null;
+        PrintWriter pelaajanHuonoSijainti = null;
         
 
         try {
-            toimivaTesti = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("level/Toimiva_Testi.lvl"), "utf-8"));
-            toimivaTesti.write("4 5\n" + ".....\n" + ".....\n" + "....S\n" +
+            toimivaTesti = new PrintWriter("level/Toimiva_Testi.lvl", "UTF-8");
+            toimivaTesti.println("4 5\n" + ".....\n" + ".....\n" + "....S\n" +
                 ".#E#.\n" + "1 2\n" + "1\n" + "2 2");
-            vaaraMerkki = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("level/Vaara_Merkki.lvl"), "utf-8"));
+            vaaraMerkki = new PrintWriter("level/Vaara_Merkki.lvl", "UTF-8");
             vaaraMerkki.write("4 5\n" + ".....\n" + ".....\n" + ".*..S\n" +
                 ".#E#.\n" + "1 2\n" + "1\n" + "2 2");
-            pelaajanHuonoSijainti = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("level/Huono_SijaintiP.lvl"), "utf-8"));
+            pelaajanHuonoSijainti = new PrintWriter("level/Huono_SijaintiP.lvl", "UTF-8");
             pelaajanHuonoSijainti.write("4 5\n" + ".....\n" + ".....\n" + "....S\n" +
                 ".#E#.\n" + "4 2\n" + "1\n" + "2 2");
         } catch (IOException ex) {
-
         } finally {
             try {
                 toimivaTesti.close();
                 vaaraMerkki.close();
                 pelaajanHuonoSijainti.close();
-            } catch (Exception ex) {}
+            } catch (Exception ex) {
+            }
         }
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-        File testi1 = new File("level/Toimiva_Testi.lvl");
-        File testi2 = new File("level/Vaara_Merkki.lvl");
-        File testi3 = new File("level/Huono_SijaintiP.lvl");
-        
-        testi1.delete();
-        testi2.delete();
-        testi3.delete();
-        
-        File testiHakemisto = new File("level");
-        testiHakemisto.delete();
-    }
-    
-    @Before
-    public void setUp() {
     }
     
     @After
     public void tearDown() {
+        File testi1 = new File("level/Toimiva_Testi.lvl");
+        File testi2 = new File("level/Vaara_Merkki.lvl");
+        File testi3 = new File("level/Huono_SijaintiP.lvl");
+
+        testi1.delete();
+        testi2.delete();
+        testi3.delete();
+
+        File testiHakemisto = new File("level");
+        testiHakemisto.delete();
     }
     
     @Test

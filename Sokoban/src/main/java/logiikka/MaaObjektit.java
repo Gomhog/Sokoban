@@ -9,16 +9,19 @@ public class MaaObjektit {
     private int kytkimienMaara;
     private ArrayList<int[]> kytkimet;
     private int[] uloskaynninSijainti;
+    private boolean exitSet;
 
     public MaaObjektit() {
         kytkimienMaara = 0;
         kytkimet = new ArrayList<>();
         uloskaynninSijainti = new int[2];
+        exitSet = false;
     }
     
     public void asetaUloskaynti(int i, int j) {
         uloskaynninSijainti[0] = i;
         uloskaynninSijainti[1] = j;
+        exitSet = true;
     }
     
     public void asetaKytkin(int i, int j) {
@@ -38,5 +41,7 @@ public class MaaObjektit {
         return uloskaynninSijainti;
     }
     
-    
+    public boolean getExitSet() {
+        return exitSet;
+    }
 }

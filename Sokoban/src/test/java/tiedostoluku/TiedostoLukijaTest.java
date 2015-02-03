@@ -37,12 +37,14 @@ public class TiedostoLukijaTest {
             pelaajanHuonoSijainti.write("4 5\n" + ".....\n" + ".....\n" + "....S\n" +
                 ".#E#.\n" + "4 2\n" + "1\n" + "2 2");
         } catch (IOException ex) {
+            System.out.println("ÄÄÄK");
         } finally {
             try {
                 toimivaTesti.close();
                 vaaraMerkki.close();
                 pelaajanHuonoSijainti.close();
             } catch (Exception ex) {
+                System.out.println("KÄÄK");
             }
         }
     }

@@ -11,8 +11,6 @@ import logiikka.Kartta;
 
 public class TiedostoLukija {
     
-    public TiedostoLukija() {
-    }
     
     public static Kartta lueKartta(String tiedostonimi) {
         Kartta kartta = null;

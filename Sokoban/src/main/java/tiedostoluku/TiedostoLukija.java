@@ -14,54 +14,43 @@ public class TiedostoLukija {
     public TiedostoLukija() {
     }
     
-    public Kartta lueKartta(String tiedostonimi) {
+    public static Kartta lueKartta(String tiedostonimi) {
         Kartta kartta = null;
         try (Scanner lukija = new Scanner(new FileReader("level/" + tiedostonimi))) {
-            int n = lukija.nextInt();
-            int m = lukija.nextInt();
-            lukija.nextLine();
-            kartta = new Kartta(n,m);
-            for (int i = 0; i < n; i++) {
-                String luettu = lukija.nextLine();
-                if (luettu.length() != m) {
-                    lukija.close();
-                    return null;
-                }
-                for (int j = 0; j < m; j++) {
-                    char valinta = luettu.charAt(j);
-                    if(!rakennaKarttaa(kartta, valinta, i, j)) {
-                        lukija.close();
-                        return null;
-                    }
-                }
-            }
-            int pelaajaY = lukija.nextInt();
-            int pelaajaX = lukija.nextInt();
-            if (!kartta.getLiikkuvuus().getPaaseekoPelaaja(pelaajaY, pelaajaX)) {
-                lukija.close();
-                return null;
-            }
-            kartta.setPelaaja(pelaajaY, pelaajaX);
-            int palikoita = lukija.nextInt();
-            if (palikoita < kartta.getMaaObjektit().getKytkimienMaara()) {
-                lukija.close();
-                return null;
-            }
-            for (int k = 0; k < palikoita; k++) {
-                int i = lukija.nextInt();
-                int j = lukija.nextInt();
-                if (!kartta.getLiikkuvuus().getPaaseekoPalikka(i, j)) {
-                    lukija.close();
-                    return null;
-                }
-                kartta.getPalikat().lisaaPalikka(i, j);
-            }
+            kartta = luoPohjakartta(lukija);
+            luoMaaobjektitJaLiikkuvuus(lukija,kartta);
+            asetaPelaaja(kartta, lukija);
+            luoPalikat(kartta, lukija);
             lukija.close();
-        } catch (FileNotFoundException ex) {}
+        } catch (Exception ex) {
+            return null;
+        }
         return kartta;
     }
     
-    private boolean rakennaKarttaa(Kartta kartta, char merkki, int i, int j) {
+    private static Kartta luoPohjakartta(Scanner lukija) {
+        int n = lukija.nextInt();
+        int m = lukija.nextInt();
+        lukija.nextLine();
+        return new Kartta(n,m);
+    }
+    
+    private static void luoMaaobjektitJaLiikkuvuus(Scanner lukija, Kartta kartta) throws Exception {
+        for (int i = 0; i < kartta.getKokoY(); i++) {
+            String luettu = lukija.nextLine();
+            if (luettu.length() != kartta.getKokoX()) {
+                failaaminen(lukija);
+            }
+            for (int j = 0; j < kartta.getKokoX(); j++) {
+                char valinta = luettu.charAt(j);
+                if(!rakennaKarttaa(kartta, valinta, i, j)) {
+                    failaaminen(lukija);
+                }
+            }
+        }
+    }
+    
+    private static boolean rakennaKarttaa(Kartta kartta, char merkki, int i, int j) {
         if (merkki == '#') {
             kartta.getLiikkuvuus().lisaaSeina(i, j);
             return true;
@@ -82,4 +71,47 @@ public class TiedostoLukija {
         }
         return false;
     }
+    
+    private static void asetaPelaaja(Kartta kartta, 
+            Scanner lukija) throws Exception {
+        int y = lukija.nextInt();
+        int x = lukija.nextInt();
+        if (!kartta.getLiikkuvuus().getPaaseekoPelaaja(y, x)) {
+            failaaminen(lukija);
+        }
+        kartta.setPelaaja(y, x);
+    }
+    
+    private static void luoPalikat(Kartta kartta, Scanner lukija) 
+            throws Exception {
+        int palikoita = lukija.nextInt();
+        if (palikoita < kartta.getMaaObjektit().getKytkimienMaara()) {
+            failaaminen(lukija);
+        }
+        for (int k = 0; k < palikoita; k++) {
+            lisaaPalikka(kartta, lukija);
+        }
+    }
+    
+    private static void lisaaPalikka(Kartta kartta, Scanner lukija) 
+            throws Exception {
+        int pelaajaY = kartta.getPelaajanSijainti()[0];
+        int pelaajaX = kartta.getPelaajanSijainti()[1];
+        int i = lukija.nextInt();
+        int j = lukija.nextInt();
+        if (i == pelaajaY && j == pelaajaX) {
+            failaaminen(lukija);
+        }
+        if (!kartta.getLiikkuvuus().getPaaseekoPalikka(i, j)) {
+            failaaminen(lukija);
+        }
+        kartta.getPalikat().lisaaPalikka(i, j);
+    }
+    
+    private static void failaaminen(Scanner lukija) throws Exception {
+        lukija.close();
+        throw new Exception();
+    }
+    
+    
 }

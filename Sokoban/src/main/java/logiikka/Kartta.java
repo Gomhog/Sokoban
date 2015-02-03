@@ -69,6 +69,14 @@ public class Kartta {
     public int[] getPelaajanSijainti() {
         return pelaajanSijainti;
     }
+
+    public int getKokoY() {
+        return kokoY;
+    }
+
+    public int getKokoX() {
+        return kokoX;
+    }
     
     
 }

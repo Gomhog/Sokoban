@@ -19,16 +19,6 @@ public class TiedostoLukijaTest {
     
     @BeforeClass
     public static void setUpClass() {
-        
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-        
-    }
-    
-    @Before
-    public void setUp() {
         File hakemisto = new File("level");
         hakemisto.mkdir();
         PrintWriter toimivaTesti = null;
@@ -57,8 +47,8 @@ public class TiedostoLukijaTest {
         }
     }
     
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDownClass() {
         File testi1 = new File("level/Toimiva_Testi.lvl");
         File testi2 = new File("level/Vaara_Merkki.lvl");
         File testi3 = new File("level/Huono_SijaintiP.lvl");
@@ -71,10 +61,25 @@ public class TiedostoLukijaTest {
         testiHakemisto.delete();
     }
     
+    @Before
+    public void setUp() {
+        
+    }
+    
+    @After
+    public void tearDown() {
+        
+    }
+    
+    @Test
+    public void vaaraMerkkiEiLuoKarttaa() {
+        Kartta kartta = TiedostoLukija.lueKartta("Vaara_Merkki.lvl");
+        assertTrue(kartta == null);
+    }
+    
     @Test
     public void karttaSyntyy() {
-        TiedostoLukija testi = new TiedostoLukija();
-        Kartta kartta = testi.lueKartta("Toimiva_Testi.lvl");
+        Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
         assertFalse(kartta == null);
     }
 }

@@ -17,7 +17,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Sokoban");
-        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(1000, 700));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -28,11 +28,12 @@ public class GraafinenKayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        BoxLayout layout = new BoxLayout(container, BoxLayout.X_AXIS);
-        container.setLayout(layout);
+//        BoxLayout layout = new BoxLayout(container, BoxLayout.X_AXIS);
+//        container.setLayout(layout);
         
-        container.add(frame);
-        container.add(luoSivupalkki());
+        container.add(luoSivupalkki(), BorderLayout.EAST);
+        ValintaPalkki valinta = new ValintaPalkki();
+        container.add(valinta.karttojenValinta(), BorderLayout.WEST);
     }
 
     public JFrame getFrame() {
@@ -42,8 +43,8 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JPanel luoSivupalkki() {
         JPanel palkki = new JPanel(new GridLayout(3,1));
         palkki.add(new JButton("Restart"));
-        palkki.add(new JButton("Quit"));
         palkki.add(new JButton("Help"));
+        palkki.add(new JButton("Quit"));
         return palkki;
     }
 }

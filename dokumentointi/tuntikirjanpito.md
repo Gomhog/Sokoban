@@ -42,3 +42,24 @@
 
 * Tiedostonluvun ensimmäinen versio (ei vielä testattu)
 * Karttojen syntaksi tiedostoissa
+
+# Maanantai 2.2.2015
+
+4 h
+
+* Tiedostolukijan debuggausta, kesti pitkään
+* Siistitty metodia lueKartta
+
+# Tiistai 3.2.2015
+
+2 h
+
+* Metodia lueKartta pilkottu vielä lisää
+
+# Keskiviikko 4.2.2015
+
+5 h
+
+* Aloiteltu graafista käyttöliittymää
+* JavaDocin pohjat
+* Uudelleennimeämistä

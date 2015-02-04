@@ -18,10 +18,7 @@ public enum Suunta {
         suunta = new int[]{i,j};
     }
     
-    /**
-     *
-     * @return
-     */
+    
     public int[] muutos() {
         return suunta;
     }

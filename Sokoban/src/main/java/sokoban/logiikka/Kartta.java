@@ -76,50 +76,32 @@ public class Kartta {
         pelaajanSijainti[1] = x;
     }
 
-    /**
-     *
-     * @return
-     */
+    
     public Liikkuvuus getLiikkuvuus() {
         return liikkuvuus;
     }
 
-    /**
-     *
-     * @return
-     */
+    
     public Palikat getPalikat() {
         return palikat;
     }
 
-    /**
-     *
-     * @return
-     */
+    
     public MaaObjektit getMaaObjektit() {
         return maaObjektit;
     }
 
-    /**
-     *
-     * @return
-     */
+    
     public int[] getPelaajanSijainti() {
         return pelaajanSijainti;
     }
 
-    /**
-     *
-     * @return
-     */
+    
     public int getKokoY() {
         return kokoY;
     }
 
-    /**
-     *
-     * @return
-     */
+    
     public int getKokoX() {
         return kokoX;
     }

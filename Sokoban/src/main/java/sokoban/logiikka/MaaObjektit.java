@@ -60,18 +60,12 @@ public class MaaObjektit {
         return kytkimet.size();
     }
 
-    /**
-     *
-     * @return
-     */
+    
     public int[] getUloskaynninSijainti() {
         return uloskaynninSijainti;
     }
     
-    /**
-     *
-     * @return
-     */
+    
     public boolean getExitSet() {
         return exitSet;
     }

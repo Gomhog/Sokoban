@@ -1,6 +1,9 @@
 
-package logiikka;
+package sokoban.logiikka;
 
+import sokoban.logiikka.Palikat;
+import sokoban.logiikka.Suunta;
+import sokoban.logiikka.Liikkuvuus;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

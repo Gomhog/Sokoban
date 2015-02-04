@@ -1,18 +1,38 @@
 
-package logiikka;
+package sokoban.logiikka;
 
 
+/**
+ *
+ * 
+ */
 public class Palikat {
     private boolean[][] sijainnit;
 
+    /**
+     *
+     * @param n
+     * @param m
+     */
     public Palikat(int n, int m) {
         sijainnit = new boolean[n][m];
     }
     
+    /**
+     *
+     * @param i
+     * @param j
+     */
     public void lisaaPalikka(int i, int j) {
         sijainnit[i][j] = true;
     }
     
+    /**
+     *
+     * @param i
+     * @param j
+     * @return
+     */
     public boolean onkoPalikkaa(int i, int j) {
         try {
             return sijainnit[i][j];
@@ -21,6 +41,14 @@ public class Palikat {
         }
     }
     
+    /**
+     *
+     * @param i
+     * @param j
+     * @param suunta
+     * @param liikkuvuus
+     * @return
+     */
     public boolean siirraPalikkaa(int i, int j, Suunta suunta, 
             Liikkuvuus liikkuvuus) {
         if (!sijainnit[i][j]) {

@@ -1,46 +1,77 @@
 
 
-package logiikka;
+package sokoban.logiikka;
 
 import java.util.ArrayList;
 
 
+/**
+ *
+ *
+ */
 public class MaaObjektit {
-    private int kytkimienMaara;
     private ArrayList<int[]> kytkimet;
     private int[] uloskaynninSijainti;
     private boolean exitSet;
 
+    /**
+     *
+     */
     public MaaObjektit() {
-        kytkimienMaara = 0;
         kytkimet = new ArrayList<>();
         uloskaynninSijainti = new int[2];
         exitSet = false;
     }
     
+    /**
+     *
+     * @param i
+     * @param j
+     */
     public void asetaUloskaynti(int i, int j) {
         uloskaynninSijainti[0] = i;
         uloskaynninSijainti[1] = j;
         exitSet = true;
     }
     
+    /**
+     *
+     * @param i
+     * @param j
+     */
     public void asetaKytkin(int i, int j) {
         kytkimet.add(new int[]{i,j});
-        kytkimienMaara++;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public int[] getKytkin(int i) {
         return kytkimet.get(i);
     }
 
+    /**
+     *
+     * @return
+     */
     public int getKytkimienMaara() {
-        return kytkimienMaara;
+        return kytkimet.size();
     }
 
+    /**
+     *
+     * @return
+     */
     public int[] getUloskaynninSijainti() {
         return uloskaynninSijainti;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean getExitSet() {
         return exitSet;
     }

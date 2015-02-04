@@ -1,17 +1,26 @@
 
-package tiedostoluku;
+package sokoban.tiedostoluku;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import logiikka.Kartta;
+import sokoban.logiikka.Kartta;
 
 
+/**
+ *
+ *
+ */
 public class TiedostoLukija {
     
     
+    /**
+     *
+     * @param tiedostonimi
+     * @return
+     */
     public static Kartta lueKartta(String tiedostonimi) {
         Kartta kartta = null;
         try (Scanner lukija = new Scanner(new FileReader("level/" + tiedostonimi))) {

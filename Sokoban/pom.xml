@@ -39,7 +39,7 @@
     <configuration>
         <instrumentation>
             <includes>
-                <include>logiikka/*.class</include>
+                <include>sokoban.logiikka/*.class</include>
             </includes>
         </instrumentation>
     </configuration>
@@ -51,10 +51,10 @@
     <version>0.30</version>
     <configuration>
         <targetClasses>
-            <param>logiikka.*</param>
+            <param>sokoban.logiikka.*</param>
         </targetClasses>
         <targetTests>
-            <param>logiikka.*</param>
+            <param>sokoban.logiikka.*</param>
         </targetTests>
     </configuration>
 </plugin>

@@ -1,6 +1,7 @@
 
-package logiikka;
+package sokoban.logiikka;
 
+import sokoban.logiikka.MaaObjektit;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,8 +1,12 @@
 
-package logiikka;
+package sokoban.logiikka;
 
 
 
+/**
+ *
+ * 
+ */
 public enum Suunta {
     YLOS (-1,0),
     ALAS (1,0),
@@ -14,6 +18,10 @@ public enum Suunta {
         suunta = new int[]{i,j};
     }
     
+    /**
+     *
+     * @return
+     */
     public int[] muutos() {
         return suunta;
     }

@@ -1,9 +1,13 @@
 
-package logiikka;
+package sokoban.logiikka;
 
 import java.util.Arrays;
 
 
+/**
+ *
+ * 
+ */
 public class Kartta {
     private int kokoY;
     private int kokoX;
@@ -12,6 +16,11 @@ public class Kartta {
     private MaaObjektit maaObjektit;
     private int[] pelaajanSijainti;
 
+    /**
+     *
+     * @param n
+     * @param m
+     */
     public Kartta(int n, int m) {
         kokoY = n;
         kokoX = m;
@@ -22,6 +31,10 @@ public class Kartta {
     }
 
     
+    /**
+     *
+     * @return
+     */
     public boolean ratkaistu() {
         int maara = maaObjektit.getKytkimienMaara();
         for (int i = 0; i<maara; i++) {
@@ -35,11 +48,20 @@ public class Kartta {
         return Arrays.equals(pelaajanSijainti, maaObjektit.getUloskaynninSijainti());
     }
     
+    /**
+     *
+     * @param i
+     * @param j
+     */
     public void setPelaaja(int i, int j) {
         pelaajanSijainti[0] = i;
         pelaajanSijainti[1] = j;
     }
     
+    /**
+     *
+     * @param suunta
+     */
     public void liikutaPelaajaa(Suunta suunta) {
         int y = pelaajanSijainti[0] + suunta.muutos()[0];
         int x = pelaajanSijainti[1] + suunta.muutos()[1];
@@ -54,26 +76,50 @@ public class Kartta {
         pelaajanSijainti[1] = x;
     }
 
+    /**
+     *
+     * @return
+     */
     public Liikkuvuus getLiikkuvuus() {
         return liikkuvuus;
     }
 
+    /**
+     *
+     * @return
+     */
     public Palikat getPalikat() {
         return palikat;
     }
 
+    /**
+     *
+     * @return
+     */
     public MaaObjektit getMaaObjektit() {
         return maaObjektit;
     }
 
+    /**
+     *
+     * @return
+     */
     public int[] getPelaajanSijainti() {
         return pelaajanSijainti;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getKokoY() {
         return kokoY;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getKokoX() {
         return kokoX;
     }

@@ -1,9 +1,10 @@
 
-package tiedostoluku;
+package sokoban.tiedostoluku;
 
 
+import sokoban.tiedostoluku.TiedostoLukija;
 import java.io.*;
-import logiikka.Kartta;
+import sokoban.logiikka.Kartta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

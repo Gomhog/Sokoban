@@ -63,3 +63,11 @@
 * Aloiteltu graafista käyttöliittymää
 * JavaDocin pohjat
 * Uudelleennimeämistä
+
+# Torstai 5.2.2015
+
+6 h
+
+* Lisää testien kirjoittamista, logiikan mutantit tapettu
+* Javadoceja kirjoitettu
+* Piirtämisen suunnittelua

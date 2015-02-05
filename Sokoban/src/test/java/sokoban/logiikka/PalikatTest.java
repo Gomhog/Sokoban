@@ -1,9 +1,6 @@
 
 package sokoban.logiikka;
 
-import sokoban.logiikka.Palikat;
-import sokoban.logiikka.Suunta;
-import sokoban.logiikka.Liikkuvuus;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,6 +44,11 @@ public class PalikatTest {
     }
     
     @Test
+    public void palikoitaEiKartastaUlkona() {
+        assertFalse(palikat.onkoPalikkaa(-1, -1));
+    }
+    
+    @Test
     public void palikanLisaysToimii() {
         assertTrue(palikat.onkoPalikkaa(2, 2));
     }
@@ -82,5 +84,10 @@ public class PalikatTest {
     public void palikkaEiOleVanhallaPaikalla() {
         palikat.siirraPalikkaa(0, 1, Suunta.OIKEA, liikkuvuus);
         assertFalse(palikat.onkoPalikkaa(0, 1));
+    }
+    
+    @Test
+    public void tyhjastaPaikastaEiVoiSiirtaa() {
+        assertFalse(palikat.siirraPalikkaa(0, 0, Suunta.ALAS, liikkuvuus));
     }
 }

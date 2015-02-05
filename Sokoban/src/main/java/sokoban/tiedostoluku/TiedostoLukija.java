@@ -10,20 +10,26 @@ import sokoban.logiikka.Kartta;
 
 
 /**
- *
+ * Tämä luokka sisältää metodin, joka kokoaa pelikentän oikein muodostetusta
+ * LVL-tiedostosta.
  *
  */
 public class TiedostoLukija {
     
     
+    
     /**
-     *
-     * @param tiedostonimi
-     * @return
+     * Metodi muodostaa kartan parametrina annetusta LVL-tiedostosta.
+     * LVL-tiedoston tulee noudattaa oikeaa syntaksia, ja sen on oltava
+     * hakemistossa level.
+     * @param tiedostonimi on halutun LVL-tiedoston nimi.
+     * @return Tiedostosta muodostetun kartan. Jos kartan luominen ei onnistu,
+     * palauttaa null.
      */
     public static Kartta lueKartta(String tiedostonimi) {
+        String polku = "level/";
         Kartta kartta = null;
-        try (Scanner lukija = new Scanner(new FileReader("level/" + tiedostonimi))) {
+        try (Scanner lukija = new Scanner(new FileReader(polku + tiedostonimi))) {
             kartta = luoPohjakartta(lukija);
             luoMaaobjektitJaLiikkuvuus(lukija,kartta);
             asetaPelaaja(kartta, lukija);
@@ -102,8 +108,8 @@ public class TiedostoLukija {
     
     private static void lisaaPalikka(Kartta kartta, Scanner lukija) 
             throws Exception {
-        int pelaajaY = kartta.getPelaajanSijainti()[0];
-        int pelaajaX = kartta.getPelaajanSijainti()[1];
+        int pelaajaY = kartta.getPelaajaY();
+        int pelaajaX = kartta.getPelaajaX();
         int i = lukija.nextInt();
         int j = lukija.nextInt();
         if (i == pelaajaY && j == pelaajaX) {

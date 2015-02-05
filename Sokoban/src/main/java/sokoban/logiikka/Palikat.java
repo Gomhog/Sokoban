@@ -11,31 +11,31 @@ public class Palikat {
 
     /**
      *
-     * @param n
-     * @param m
+     * @param y
+     * @param x
      */
-    public Palikat(int n, int m) {
-        sijainnit = new boolean[n][m];
+    public Palikat(int y, int x) {
+        sijainnit = new boolean[y][x];
     }
     
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      */
-    public void lisaaPalikka(int i, int j) {
-        sijainnit[i][j] = true;
+    public void lisaaPalikka(int y, int x) {
+        sijainnit[y][x] = true;
     }
     
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      * @return
      */
-    public boolean onkoPalikkaa(int i, int j) {
+    public boolean onkoPalikkaa(int y, int x) {
         try {
-            return sijainnit[i][j];
+            return sijainnit[y][x];
         } catch (Exception e) {
             return false;
         }
@@ -43,24 +43,24 @@ public class Palikat {
     
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      * @param suunta
      * @param liikkuvuus
      * @return
      */
-    public boolean siirraPalikkaa(int i, int j, Suunta suunta, 
+    public boolean siirraPalikkaa(int y, int x, Suunta suunta, 
             Liikkuvuus liikkuvuus) {
-        if (!sijainnit[i][j]) {
+        if (!sijainnit[y][x]) {
             return false;
         }
-        int kohdeY = i + suunta.muutos()[0];
-        int kohdeX = j + suunta.muutos()[1];
+        int kohdeY = y + suunta.getSuuntaY();
+        int kohdeX = x + suunta.getSuuntaX();
         if (onkoPalikkaa(kohdeY,kohdeX) || 
                 !liikkuvuus.getPaaseekoPalikka(kohdeY, kohdeX)) {
             return false;
         }
-        sijainnit[i][j] = false;
+        sijainnit[y][x] = false;
         sijainnit[kohdeY][kohdeX] = true;
         return true;
     }

@@ -13,13 +13,23 @@ public enum Suunta {
     VASEN (0,-1),
     OIKEA (0,1);
     
-    private final int[] suunta;
-    Suunta(int i, int j) {
-        suunta = new int[]{i,j};
+    private final int suuntaY;
+    private final int suuntaX;
+    
+    
+    Suunta(int y, int x) {
+        suuntaY = y;
+        suuntaX = x;
+    }
+    
+
+    public int getSuuntaY() {
+        return suuntaY;
+    }
+
+    public int getSuuntaX() {
+        return suuntaX;
     }
     
     
-    public int[] muutos() {
-        return suunta;
-    }
 }

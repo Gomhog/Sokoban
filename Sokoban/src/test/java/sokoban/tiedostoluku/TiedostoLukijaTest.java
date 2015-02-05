@@ -77,12 +77,18 @@ public class TiedostoLukijaTest {
     @Test
     public void vaaraMerkkiEiLuoKarttaa() {
         Kartta kartta = TiedostoLukija.lueKartta("Vaara_Merkki.lvl");
-        assertTrue(kartta == null);
+        assertNull(kartta);
+    }
+    
+    @Test
+    public void huonollaPelaajanLahdollaEiKarttaa() {
+        Kartta kartta = TiedostoLukija.lueKartta("Huono_SijaintiP");
+        assertNull(kartta);
     }
     
     @Test
     public void karttaSyntyy() {
         Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
-        assertFalse(kartta == null);
+        assertNotNull(kartta);
     }
 }

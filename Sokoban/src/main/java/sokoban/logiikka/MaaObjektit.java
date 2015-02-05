@@ -11,45 +11,45 @@ import java.util.ArrayList;
  */
 public class MaaObjektit {
     private ArrayList<int[]> kytkimet;
-    private int[] uloskaynninSijainti;
     private boolean exitSet;
+    private int uloskayntiY;
+    private int uloskayntiX;
 
     /**
      *
      */
     public MaaObjektit() {
         kytkimet = new ArrayList<>();
-        uloskaynninSijainti = new int[2];
         exitSet = false;
     }
     
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      */
-    public void asetaUloskaynti(int i, int j) {
-        uloskaynninSijainti[0] = i;
-        uloskaynninSijainti[1] = j;
+    public void asetaUloskaynti(int y, int x) {
+        uloskayntiY = y;
+        uloskayntiX = x;
         exitSet = true;
     }
     
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      */
-    public void asetaKytkin(int i, int j) {
-        kytkimet.add(new int[]{i,j});
+    public void asetaKytkin(int y, int x) {
+        kytkimet.add(new int[]{y,x});
     }
     
-    /**
-     *
-     * @param i
-     * @return
-     */
-    public int[] getKytkin(int i) {
-        return kytkimet.get(i);
+    
+    public int getKytkinY(int i) {
+        return kytkimet.get(i)[0];
+    }
+    
+    public int getKytkinX(int i) {
+        return kytkimet.get(i)[1];
     }
 
     /**
@@ -59,14 +59,19 @@ public class MaaObjektit {
     public int getKytkimienMaara() {
         return kytkimet.size();
     }
-
-    
-    public int[] getUloskaynninSijainti() {
-        return uloskaynninSijainti;
-    }
     
     
     public boolean getExitSet() {
         return exitSet;
     }
+
+    public int getUloskayntiY() {
+        return uloskayntiY;
+    }
+
+    public int getUloskayntiX() {
+        return uloskayntiX;
+    }
+    
+    
 }

@@ -1,7 +1,6 @@
 
 package sokoban.logiikka;
 
-import sokoban.logiikka.MaaObjektit;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,6 +39,11 @@ public class MaaObjektitTest {
     }
     
     @Test
+    public void uloskayntiaEiAsetettuAluksi() {
+        assertFalse(maaObjektit.getExitSet());
+    }
+    
+    @Test
     public void kytkimenLisaysKasvattaaMaaraa() {
         maaObjektit.asetaKytkin(1, 1);
         assertEquals(maaObjektit.getKytkimienMaara(),1);
@@ -48,24 +52,30 @@ public class MaaObjektitTest {
     @Test
     public void kytkimienLisaysLisaaKytkimenYKoordinaatin() {
         maaObjektit.asetaKytkin(1, 2);
-        assertEquals(maaObjektit.getKytkin(0)[0],1);
+        assertEquals(maaObjektit.getKytkinY(0),1);
     }
     
     @Test
     public void kytkimienLisaysLisaaKytkimenXKoordinaatin() {
         maaObjektit.asetaKytkin(1, 2);
-        assertEquals(maaObjektit.getKytkin(0)[1],2);
+        assertEquals(maaObjektit.getKytkinX(0),2);
     }
     
     @Test
     public void uloskaynninYKoordinaattiOikein() {
         maaObjektit.asetaUloskaynti(1, 2);
-        assertEquals(maaObjektit.getUloskaynninSijainti()[0],1);
+        assertEquals(maaObjektit.getUloskayntiY(),1);
     }
     
     @Test
     public void uloskaynninXKoordinaattiOikein() {
         maaObjektit.asetaUloskaynti(1, 2);
-        assertEquals(maaObjektit.getUloskaynninSijainti()[1],2);
+        assertEquals(maaObjektit.getUloskayntiX(),2);
+    }
+    
+    @Test
+    public void uloskayntiMerkitaanAsetetuksi() {
+        maaObjektit.asetaUloskaynti(1, 2);
+        assertTrue(maaObjektit.getExitSet());
     }
 }

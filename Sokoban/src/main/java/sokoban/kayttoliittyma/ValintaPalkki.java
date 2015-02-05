@@ -16,7 +16,6 @@ public class ValintaPalkki {
     
     public JPanel karttojenValinta() {
         JPanel palkki = new JPanel();
-//        BoxLayout layout = new BoxLayout(palkki, BoxLayout.Y_AXIS);
         GridLayout layout = new GridLayout(4,1);
         palkki.setLayout(layout);
         

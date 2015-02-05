@@ -14,20 +14,20 @@ public class Kartta {
     private Liikkuvuus liikkuvuus;
     private Palikat palikat;
     private MaaObjektit maaObjektit;
-    private int[] pelaajanSijainti;
+    private int pelaajaY;
+    private int pelaajaX;
 
     /**
      *
-     * @param n
-     * @param m
+     * @param y
+     * @param x
      */
-    public Kartta(int n, int m) {
-        kokoY = n;
-        kokoX = m;
-        liikkuvuus = new Liikkuvuus(n,m);
-        palikat = new Palikat(n,m);
+    public Kartta(int y, int x) {
+        kokoY = y;
+        kokoX = x;
+        liikkuvuus = new Liikkuvuus(y,x);
+        palikat = new Palikat(y,x);
         maaObjektit = new MaaObjektit();
-        pelaajanSijainti = new int[2];
     }
 
     
@@ -38,24 +38,25 @@ public class Kartta {
     public boolean ratkaistu() {
         int maara = maaObjektit.getKytkimienMaara();
         for (int i = 0; i<maara; i++) {
-            if (palikat.onkoPalikkaa(maaObjektit.getKytkin(i)[0],
-                    maaObjektit.getKytkin(i)[1])) {
+            if (palikat.onkoPalikkaa(maaObjektit.getKytkinY(i),
+                    maaObjektit.getKytkinX(i))) {
                 continue;
             }
             return false;
         }
         
-        return Arrays.equals(pelaajanSijainti, maaObjektit.getUloskaynninSijainti());
+        return (pelaajaX == maaObjektit.getUloskayntiX() 
+                && pelaajaY == maaObjektit.getUloskayntiY());
     }
     
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      */
-    public void setPelaaja(int i, int j) {
-        pelaajanSijainti[0] = i;
-        pelaajanSijainti[1] = j;
+    public void setPelaaja(int y, int x) {
+        pelaajaY = y;
+        pelaajaX = x;
     }
     
     /**
@@ -63,8 +64,8 @@ public class Kartta {
      * @param suunta
      */
     public void liikutaPelaajaa(Suunta suunta) {
-        int y = pelaajanSijainti[0] + suunta.muutos()[0];
-        int x = pelaajanSijainti[1] + suunta.muutos()[1];
+        int y = pelaajaY + suunta.getSuuntaY();
+        int x = pelaajaX + suunta.getSuuntaX();
         if (!liikkuvuus.getPaaseekoPelaaja(y, x)) {
             return;
         }
@@ -72,8 +73,8 @@ public class Kartta {
                 !palikat.siirraPalikkaa(y, x, suunta, liikkuvuus)) {
             return;
         }
-        pelaajanSijainti[0] = y;
-        pelaajanSijainti[1] = x;
+        pelaajaY = y;
+        pelaajaX = x;
     }
 
     
@@ -90,12 +91,14 @@ public class Kartta {
     public MaaObjektit getMaaObjektit() {
         return maaObjektit;
     }
-
     
-    public int[] getPelaajanSijainti() {
-        return pelaajanSijainti;
+    public int getPelaajaY() {
+        return pelaajaY;
     }
-
+    
+    public int getPelaajaX() {
+        return pelaajaX;
+    }
     
     public int getKokoY() {
         return kokoY;

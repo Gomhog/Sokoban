@@ -14,13 +14,13 @@ public class Liikkuvuus {
 
     /**
      *
-     * @param n
-     * @param m
+     * @param y
+     * @param x
      */
-    public Liikkuvuus(int n, int m) {
-        paaseekoPelaaja = new boolean[n][m];
-        paaseekoPalikka = new boolean[n][m];
-        for (int i = 0; i < n; i++) {
+    public Liikkuvuus(int y, int x) {
+        paaseekoPelaaja = new boolean[y][x];
+        paaseekoPalikka = new boolean[y][x];
+        for (int i = 0; i < y; i++) {
             Arrays.fill(paaseekoPelaaja[i], true);
             Arrays.fill(paaseekoPalikka[i], true);
             
@@ -29,23 +29,23 @@ public class Liikkuvuus {
     
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      */
-    public void lisaaSeina(int i, int j) {
-        paaseekoPelaaja[i][j] = false;
-        paaseekoPalikka[i][j] = false;
+    public void lisaaSeina(int y, int x) {
+        paaseekoPelaaja[y][x] = false;
+        paaseekoPalikka[y][x] = false;
     }
 
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      * @return
      */
-    public boolean getPaaseekoPelaaja(int i, int j) {
+    public boolean getPaaseekoPelaaja(int y, int x) {
         try {
-            return paaseekoPelaaja[i][j];
+            return paaseekoPelaaja[y][x];
         } catch (Exception e) {
             return false;
         }
@@ -53,13 +53,13 @@ public class Liikkuvuus {
 
     /**
      *
-     * @param i
-     * @param j
+     * @param y
+     * @param x
      * @return
      */
-    public boolean getPaaseekoPalikka(int i, int j) {
+    public boolean getPaaseekoPalikka(int y, int x) {
         try {
-            return paaseekoPalikka[i][j];
+            return paaseekoPalikka[y][x];
         } catch (Exception e) {
             return false;
         }

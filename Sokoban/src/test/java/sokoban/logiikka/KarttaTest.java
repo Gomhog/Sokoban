@@ -1,14 +1,12 @@
 
 package sokoban.logiikka;
 
-import sokoban.logiikka.Kartta;
-import sokoban.logiikka.Suunta;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 public class KarttaTest {
@@ -33,10 +31,22 @@ public class KarttaTest {
         kartta.getMaaObjektit().asetaUloskaynti(3, 2);
         kartta.getMaaObjektit().asetaKytkin(2, 4);
         kartta.getPalikat().lisaaPalikka(2, 2);
+        kartta.getLiikkuvuus().lisaaSeina(3, 1);
+        kartta.getLiikkuvuus().lisaaSeina(3, 3);
     }
     
     @After
     public void tearDown() {
+    }
+    
+    @Test
+    public void kentanKorkeusOikein() {
+        assertEquals(kartta.getKokoY(),4);
+    }
+    
+    @Test
+    public void kentanLeveysOikein() {
+        assertEquals(kartta.getKokoX(),5);
     }
     
     @Test
@@ -47,7 +57,56 @@ public class KarttaTest {
     @Test
     public void pelaajaLiikkuu() {
         kartta.liikutaPelaajaa(Suunta.YLOS);
-        assertEquals(kartta.getPelaajanSijainti()[0],0);
+        assertEquals(kartta.getPelaajaY(),0);
+    }
+    
+    @Test
+    public void kenttaEiLapiElleiPelaajaUloskaynnilla() {
+        kartta.liikutaPelaajaa(Suunta.VASEN);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        for (int i = 0; i<2;i++) {
+            kartta.liikutaPelaajaa(Suunta.OIKEA);
+        }
+        assertFalse(kartta.ratkaistu());
+    }
+    
+    @Test
+    public void eiRiitaEttaUloskaynnilla() {
+        kartta.liikutaPelaajaa(Suunta.VASEN);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        kartta.liikutaPelaajaa(Suunta.OIKEA);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        assertFalse(kartta.ratkaistu());
+    }
+    
+    @Test
+    public void pelaajaTyontaaPalikkaaJaOnOikeassaPaikassa() {
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        assertEquals(kartta.getPelaajaY(),2);
+    }
+    
+    @Test
+    public void pelaajanTyontamaPalikkaOnOikeassaPaikassa() {
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        assertTrue(kartta.getPalikat().onkoPalikkaa(3, 2));
+    }
+    
+    @Test
+    public void pelaajaEiLiikuPalikkaan() {
+        kartta.liikutaPelaajaa(Suunta.VASEN);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        for (int i = 0; i<3;i++) {
+            kartta.liikutaPelaajaa(Suunta.OIKEA);
+        }
+        assertEquals(kartta.getPelaajaX(),3);
+    }
+    
+    @Test
+    public void pelaajaEiKaveleSeinaan() {
+        kartta.liikutaPelaajaa(Suunta.VASEN);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        assertEquals(kartta.getPelaajaY(),2);
     }
     
     @Test

@@ -4,7 +4,7 @@ package sokoban.logiikka;
 
 
 /**
- *
+ * Täältä löytyvät kaikki neljä liikkumissuuntaa: YLOS vastaa askelta ylös jne.
  * 
  */
 public enum Suunta {

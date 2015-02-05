@@ -40,6 +40,7 @@
         <instrumentation>
             <includes>
                 <include>sokoban.logiikka/*.class</include>
+                <include>sokoban.tiedostoluku/*.class</include>
             </includes>
         </instrumentation>
     </configuration>
@@ -52,9 +53,11 @@
     <configuration>
         <targetClasses>
             <param>sokoban.logiikka.*</param>
+            <param>sokoban.tiedostoluku.*</param>
         </targetClasses>
         <targetTests>
             <param>sokoban.logiikka.*</param>
+            <param>sokoban.tiedostoluku.*</param>
         </targetTests>
     </configuration>
 </plugin>

@@ -91,4 +91,16 @@ public class TiedostoLukijaTest {
         Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
         assertNotNull(kartta);
     }
+    
+    @Test
+    public void kartanKorkeusOikein() {
+        Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
+        assertEquals(kartta.getKokoY(),4);
+    }
+    
+    @Test
+    public void kartanLeveysOikein() {
+        Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
+        assertEquals(kartta.getKokoX(),5);
+    }
 }

@@ -75,6 +75,12 @@ public class TiedostoLukijaTest {
     }
     
     @Test
+    public void vaaraNimiEiLuoKarttaa() {
+        Kartta kartta = TiedostoLukija.lueKartta("EiOleOlemassa.lvl");
+        assertNull(kartta);
+    }
+    
+    @Test
     public void vaaraMerkkiEiLuoKarttaa() {
         Kartta kartta = TiedostoLukija.lueKartta("Vaara_Merkki.lvl");
         assertNull(kartta);
@@ -102,5 +108,23 @@ public class TiedostoLukijaTest {
     public void kartanLeveysOikein() {
         Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
         assertEquals(kartta.getKokoX(),5);
+    }
+    
+    @Test
+    public void kartanSeinatOikein() {
+        Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
+        assertFalse(kartta.getLiikkuvuus().getPaaseekoPelaaja(3, 1));
+    }
+    
+    @Test
+    public void kytkinRuudussa() {
+        Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
+        assertEquals(kartta.getMaaObjektit().getKytkinX(0),4);
+    }
+    
+    @Test
+    public void uloskayntiOikeassaPaikassa() {
+        Kartta kartta = TiedostoLukija.lueKartta("Toimiva_Testi.lvl");
+        assertEquals(kartta.getMaaObjektit().getUloskayntiY(),3);
     }
 }

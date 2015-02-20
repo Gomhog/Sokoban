@@ -34,6 +34,8 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(luoSivupalkki(), BorderLayout.EAST);
         ValintaPalkki valinta = new ValintaPalkki();
         container.add(valinta.karttojenValinta(), BorderLayout.WEST);
+        PeliRuutu peli = new PeliRuutu();
+        container.add(peli);
     }
 
     public JFrame getFrame() {

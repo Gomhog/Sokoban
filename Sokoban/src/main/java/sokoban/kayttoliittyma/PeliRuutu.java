@@ -4,6 +4,7 @@ package sokoban.kayttoliittyma;
 import java.awt.*;
 import javax.swing.JPanel;
 import sokoban.logiikka.Kartta;
+import sokoban.logiikka.Suunta;
 import sokoban.tiedostoluku.TiedostoLukija;
 
 
@@ -19,6 +20,7 @@ public class PeliRuutu extends JPanel {
     public PeliRuutu() {
         super.setBackground(Color.BLACK);
         kartta = null;
+        
     }
     
     @Override
@@ -33,6 +35,9 @@ public class PeliRuutu extends JPanel {
         pysyvat.piirra(graphics);
         palikat.piirra(graphics);
         pelaaja.piirra(graphics);
+        if (kartta.ratkaistu()) {
+            winner(graphics);
+        }
     }
 
     public void lataaKartta(String nimi) {
@@ -55,5 +60,22 @@ public class PeliRuutu extends JPanel {
         this.pelaaja = new PelaajaPiirto(kartta);
     }
     
+    public void lopeta() {
+        this.kartta = null;
+    }
     
+    public boolean aktiivinen() {
+        return kartta != null;
+    }
+    
+    public void liiku(Suunta suunta) {
+        if (!kartta.ratkaistu()) {
+            kartta.liikutaPelaajaa(suunta);
+        }
+    }
+    
+    private void winner(Graphics g) {
+        g.setColor(Color.PINK);
+        g.drawString("A WINNER IS YOU", 30, 30);
+    }
 }

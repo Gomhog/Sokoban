@@ -28,7 +28,7 @@ public class MaaObjektitPiirto {
     private void piirraKytkimet(Graphics g) {
         for (int i = 0; i < objektit.getKytkimienMaara(); i++) {
             int y = objektit.getKytkinY(i);
-            int x = objektit.getKytkinY(i);
+            int x = objektit.getKytkinX(i);
             
             g.setColor(Color.GREEN);
             g.fillRect(20*x, 20*y, 20, 20);

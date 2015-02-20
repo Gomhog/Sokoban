@@ -30,23 +30,43 @@ public class GraafinenKayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
 //        BoxLayout layout = new BoxLayout(container, BoxLayout.X_AXIS);
 //        container.setLayout(layout);
-        
-        container.add(luoSivupalkki(), BorderLayout.EAST);
-        ValintaPalkki valinta = new ValintaPalkki();
-        container.add(valinta.karttojenValinta(), BorderLayout.WEST);
         PeliRuutu peli = new PeliRuutu();
+        NappienKuuntelija nk = new NappienKuuntelija(peli);
+        container.add(luoSivupalkki(nk), BorderLayout.EAST);
+        ValintaPalkki valinta = new ValintaPalkki();
+        container.add(valinta.karttojenValinta(nk), BorderLayout.WEST);
         container.add(peli);
+        peli.setFocusable(true);
+        
+        Liikuttaja liikuttaja = new Liikuttaja(peli);
+        frame.addKeyListener(liikuttaja);
+        peli.addKeyListener(liikuttaja);
     }
 
     public JFrame getFrame() {
         return frame;
     }
     
-    private JPanel luoSivupalkki() {
+    private JPanel luoSivupalkki(NappienKuuntelija nk) {
         JPanel palkki = new JPanel(new GridLayout(3,1));
-        palkki.add(new JButton("Restart"));
-        palkki.add(new JButton("Help"));
-        palkki.add(new JButton("Quit"));
+        
+        JButton restart = new JButton("Restart");
+        JButton help = new JButton("Help");
+        JButton quit = new JButton("Quit");
+        
+        palkki.add(restart);
+        palkki.add(help);
+        palkki.add(quit);
+        
+        restart.addActionListener(nk);
+        help.addActionListener(nk);
+        quit.addActionListener(nk);
+        
+        nk.setRestart(restart);
+        nk.setHelp(help);
+        nk.setQuit(quit);
+        
+        palkki.setFocusable(false);
         return palkki;
     }
 }

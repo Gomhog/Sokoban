@@ -26,7 +26,7 @@ public class LiikkuvuusPiirto {
     }
     
     private void piirraRuutu(int y, int x, Graphics g) {
-        Color vari = Color.LIGHT_GRAY;
+        Color vari = Color.DARK_GRAY;
         if (!pohja.getPaaseekoPelaaja(y, x) &&
                 !pohja.getPaaseekoPalikka(y, x)) {
             vari = Color.BLACK;

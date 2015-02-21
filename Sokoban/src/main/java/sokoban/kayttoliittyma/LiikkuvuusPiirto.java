@@ -6,17 +6,31 @@ import sokoban.logiikka.Kartta;
 import sokoban.logiikka.Liikkuvuus;
 
 
+/**
+ * Luokka on vastuussa Liikuvuus-olion tietojen piirtämisestä.
+ * 
+ */
 public class LiikkuvuusPiirto {
     private Liikkuvuus pohja;
     private int y;
     private int x;
     
+    
+    /**
+     * Luo karttaa vastaavan Liikkuvuuden piirtäjän.
+     * @param kartta kartta, jota piirretään
+     */
     public LiikkuvuusPiirto(Kartta kartta) {
         this.pohja = kartta.getLiikkuvuus();
         this.y = kartta.getKokoY();
         this.x = kartta.getKokoX();
     }
     
+    /**
+     * Piirtää liikkuvuuden värittämällä seinät mustiksi ja
+     * lattian harmaaksi.
+     * @param g Piirtävä grafiikkaolio
+     */
     public void piirra(Graphics g) {
         for (int i = 0; i< y;i++) {
             for (int j = 0; j < x; j++) {

@@ -7,13 +7,33 @@ import javax.swing.*;
 import sokoban.tiedostoluku.KarttaListaaja;
 
 
+/**
+ * Luokan tehtävänä on luoda palkki, josta pelaaja valitsee kartan ja käynnistää
+ * sen.
+ * 
+ */
 public class ValintaPalkki {
     private String[] kartat;
     
+    /**
+     * Valmistelee palkin luomisen keräämällä KarttaListaajan löytämät kartat
+     * taulukkoon.
+     */
     public ValintaPalkki() {
         kartat = KarttaListaaja.listaaKartat().toArray(new String[0]);
     }
     
+    /**
+     * Luo palkin taulukoitujen karttojen perusteella. Lisää kuuntelijan
+     * aloitusnappulalle. Kuuntelija saa täältä myös listan, josta se
+     * näkee ladattavan tiedoston nimen.
+     * 
+     * TODO: jaa pienempiin metodeihin
+     * 
+     * @param nk NappienKuuntelija, joka saa tiedon start-nappulasta ja
+     * kuuntelee sitä
+     * @return Muotoiltu valintapalkki
+     */
     public JPanel karttojenValinta(NappienKuuntelija nk) {
         JPanel palkki = new JPanel();
         GridLayout layout = new GridLayout(4,1);

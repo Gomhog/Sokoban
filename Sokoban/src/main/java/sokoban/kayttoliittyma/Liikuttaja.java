@@ -4,9 +4,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import sokoban.logiikka.Suunta;
 
+/**
+ * Luokka kuuntelee näppämistöä ja liikuttaa pelaajaa painettujen
+ * nuolinäppäimien mukaan aktiivisella peliruudulla.
+ * 
+ */
 public class Liikuttaja implements KeyListener {
     private PeliRuutu peli;
 
+    /**
+     * Luo kuuntelijan annetulle peliruudulle.
+     * @param peli PeliRuutu, johon näppäimien halutaan vaikuttavan.
+     */
     public Liikuttaja(PeliRuutu peli) {
         this.peli = peli;
     }

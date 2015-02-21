@@ -1,12 +1,15 @@
 package sokoban.kayttoliittyma;
 
 import java.awt.*;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+/**
+ * Graafinen käyttöliittymä Sokobanin pelaamiseen
+ * 
+ */
 public class GraafinenKayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -28,8 +31,6 @@ public class GraafinenKayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-//        BoxLayout layout = new BoxLayout(container, BoxLayout.X_AXIS);
-//        container.setLayout(layout);
         PeliRuutu peli = new PeliRuutu();
         NappienKuuntelija nk = new NappienKuuntelija(peli);
         container.add(luoSivupalkki(nk), BorderLayout.EAST);
@@ -47,6 +48,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         return frame;
     }
     
+    //TODO: Jaa tämä pienempiin metodeihin.
     private JPanel luoSivupalkki(NappienKuuntelija nk) {
         JPanel palkki = new JPanel(new GridLayout(3,1));
         

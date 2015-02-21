@@ -71,3 +71,18 @@
 * Lisää testien kirjoittamista, logiikan mutantit tapettu
 * Javadoceja kirjoitettu
 * Piirtämisen suunnittelua
+
+# Torstai 12.2.2015
+
+1 h
+
+* Uusi taso
+* Paranneltu testejä
+
+# Perjantai 20.2.2015
+
+6 h
+
+* Graafinen käyttöliittymä käyttökunnossa
+* Toimii
+* Tiedostolukijan testausta

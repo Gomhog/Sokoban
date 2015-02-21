@@ -9,6 +9,11 @@ import sokoban.tiedostoluku.TiedostoLukija;
 
 
 
+/**
+ * Tämä luokka on peliruutu, jossa peliä pelataan.
+ * 
+ * Peliruutu on aktiivinen, jos sillä on toimiva kartta.
+ */
 public class PeliRuutu extends JPanel {
     private String nimi;
     private Kartta kartta;
@@ -17,6 +22,10 @@ public class PeliRuutu extends JPanel {
     private PalikkaPiirto palikat;
     private PelaajaPiirto pelaaja;
     
+    /**
+     * Luo uuden peliruudun. Peliruudun tausta on musta. Aluksi ruutu ei ole 
+     * aktiivinen.
+     */
     public PeliRuutu() {
         super.setBackground(Color.BLACK);
         kartta = null;
@@ -40,6 +49,11 @@ public class PeliRuutu extends JPanel {
         }
     }
 
+    /**
+     * Lukee kartan tiedostosta. Jos lataus onnistuu, asetetaan piirtäjät uuden
+     * kartan mukaan.
+     * @param nimi Tiedostonimi, josta kartta luetaan.
+     */
     public void lataaKartta(String nimi) {
         this.kartta = TiedostoLukija.lueKartta(nimi);
         this.nimi = nimi;
@@ -52,6 +66,9 @@ public class PeliRuutu extends JPanel {
         this.pelaaja = new PelaajaPiirto(kartta);
     }
     
+    /**
+     * Aloittaa kartan alusta lukemalla uudelleen aiemmin syötetyn tiedoston.
+     */
     public void aloitaAlusta() {
         this.kartta = TiedostoLukija.lueKartta(nimi);
         this.pohja = new LiikkuvuusPiirto(kartta);
@@ -60,14 +77,26 @@ public class PeliRuutu extends JPanel {
         this.pelaaja = new PelaajaPiirto(kartta);
     }
     
+    /**
+     * Lopettaa pelin poistamalla nykyisen kartan.
+     */
     public void lopeta() {
         this.kartta = null;
     }
     
+    /**
+     * Kertoo, onko peliruutu aktiivinen.
+     * @return true, jos ruudulla on toimiva kartta; false, jos ei
+     */
     public boolean aktiivinen() {
         return kartta != null;
     }
     
+    /**
+     * Yrittää liikuttaa kartan pelaajaa annettuun suuntaan, jos karttaa ei
+     * ole ratkaistu.
+     * @param suunta Suunta, johon pelaajaa yritetään liikuttaa.
+     */
     public void liiku(Suunta suunta) {
         if (!kartta.ratkaistu()) {
             kartta.liikutaPelaajaa(suunta);

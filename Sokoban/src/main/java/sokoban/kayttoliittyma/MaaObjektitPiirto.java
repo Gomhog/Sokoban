@@ -5,13 +5,28 @@ import java.awt.Graphics;
 import sokoban.logiikka.Kartta;
 import sokoban.logiikka.MaaObjektit;
 
+/**
+ * Luokka on vastuussa MaaObjektit-oliossa olevan tiedon piirtämisestä.
+ * 
+ */
 public class MaaObjektitPiirto {
     private MaaObjektit objektit;
 
+    /**
+     * Luo karttaa vastaavan piirtäjän kartan MaaObjektit-oliolle.
+     * @param kartta piirrettävä kartta
+     */
     public MaaObjektitPiirto(Kartta kartta) {
         this.objektit = kartta.getMaaObjektit();
     }
     
+    /**
+     * Piirtää kartan uloskäynnin ja kytkimet. Kytkinruudut ovat vihreitä,
+     * ja uloskäynti on keltainen.
+     * 
+     * Tätä tulee kutsua vasta sen jälkeen, kun Liikkuvuus on piirretty.
+     * @param g Piirtävä grafiikkaolio
+     */
     public void piirra(Graphics g) {
         piirraUloskaynti(g);
         piirraKytkimet(g);

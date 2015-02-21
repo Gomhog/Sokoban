@@ -6,6 +6,13 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
+/**
+ * Luokan tehtävänä on käsitellä käyttöliittymän nappuloiden painaminen.
+ * Settereissä poistetaan komponenttien focusoituvuus, koska näppäimistön
+ * kuuntelija ei toiminut ilman.
+ * 
+ * Nappulat laitetaan aluksi tilaan, joka vastaa epäaktiivista peliruutua.
+ */
 public class NappienKuuntelija implements ActionListener {
     private JList<String> karttalista;
     private PeliRuutu ruutu;
@@ -15,12 +22,16 @@ public class NappienKuuntelija implements ActionListener {
     private JButton quit;
     private JScrollPane valinta;
 
+    /**
+     * Luo kuuntelijan, joka vaikuttaa peliruutuun.
+     * @param ruutu PeliRuutu, johon nappien painamisen halutaan vaikuttavan.
+     */
     public NappienKuuntelija(PeliRuutu ruutu) {
         this.ruutu = ruutu;
     }
     
     
-    
+    //TODO: pilko
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == start) {

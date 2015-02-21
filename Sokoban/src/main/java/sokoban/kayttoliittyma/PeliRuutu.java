@@ -32,6 +32,7 @@ public class PeliRuutu extends JPanel {
         
     }
     
+    //Piirtämiseen voisi olla oma luokka apuna
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
@@ -93,11 +94,11 @@ public class PeliRuutu extends JPanel {
     }
     
     /**
-     * Yrittää liikuttaa kartan pelaajaa annettuun suuntaan, jos karttaa ei
-     * ole ratkaistu.
+     * Yrittää liikuttaa kartan pelaajaa annettuun suuntaan.
      * @param suunta Suunta, johon pelaajaa yritetään liikuttaa.
      */
     public void liiku(Suunta suunta) {
+        // TODO: Siirrä ehto sovelluslogiikkaan
         if (!kartta.ratkaistu()) {
             kartta.liikutaPelaajaa(suunta);
         }

@@ -1,3 +1,3 @@
 # Sokoban
 
-T‰h‰n tulee teksti‰
+Huom! Jos ajat projektin, pid√§ huoli siit√§, ett√§ level-kansio on projektin juuressa.

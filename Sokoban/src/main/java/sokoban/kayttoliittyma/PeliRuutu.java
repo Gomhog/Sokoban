@@ -98,10 +98,8 @@ public class PeliRuutu extends JPanel {
      * @param suunta Suunta, johon pelaajaa yritetään liikuttaa.
      */
     public void liiku(Suunta suunta) {
-        // TODO: Siirrä ehto sovelluslogiikkaan
-        if (!kartta.ratkaistu()) {
-            kartta.liikutaPelaajaa(suunta);
-        }
+        kartta.liikutaPelaajaa(suunta);
+        
     }
     
     private void winner(Graphics g) {

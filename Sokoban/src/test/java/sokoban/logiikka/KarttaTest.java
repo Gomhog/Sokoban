@@ -120,4 +120,17 @@ public class KarttaTest {
         kartta.liikutaPelaajaa(Suunta.ALAS);
         assertTrue(kartta.ratkaistu());
     }
+    
+    @Test
+    public void pelaajaEiLiikuJosLapi() {
+        kartta.liikutaPelaajaa(Suunta.VASEN);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        for (int i = 0; i<2;i++) {
+            kartta.liikutaPelaajaa(Suunta.OIKEA);
+        }
+        kartta.liikutaPelaajaa(Suunta.VASEN);
+        kartta.liikutaPelaajaa(Suunta.ALAS);
+        kartta.liikutaPelaajaa(Suunta.YLOS);
+        assertEquals(kartta.getPelaajaY(),3);
+    }
 }

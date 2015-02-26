@@ -76,6 +76,10 @@ public class Kartta {
      * @param suunta
      */
     public void liikutaPelaajaa(Suunta suunta) {
+        if (ratkaistu()) {
+            return;
+        }
+        
         int y = pelaajaY + suunta.getSuuntaY();
         int x = pelaajaX + suunta.getSuuntaX();
         if (!liikkuvuus.getPaaseekoPelaaja(y, x)) {

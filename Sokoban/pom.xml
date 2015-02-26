@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>sokoban</groupId>
-  <artifactId>Sokoban</artifactId>
+  <artifactId>sokoban</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -39,8 +39,8 @@
     <configuration>
         <instrumentation>
             <includes>
-                <include>sokoban.logiikka/*.class</include>
-                <include>sokoban.tiedostoluku/*.class</include>
+                <include>sokoban.logiikka.*.class</include>
+                <include>sokoban.tiedostoluku.*.class</include>
             </includes>
         </instrumentation>
     </configuration>

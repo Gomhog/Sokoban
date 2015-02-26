@@ -2,7 +2,6 @@
 package sokoban.tiedostoluku;
 
 
-import sokoban.tiedostoluku.TiedostoLukija;
 import java.io.*;
 import sokoban.logiikka.Kartta;
 import org.junit.After;

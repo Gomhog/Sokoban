@@ -38,10 +38,10 @@
     <artifactId>cobertura-maven-plugin</artifactId>
     <configuration>
         <instrumentation>
-            <includes>
+<!--            <includes>
                 <include>sokoban.logiikka.*.class</include>
                 <include>sokoban.tiedostoluku.*.class</include>
-            </includes>
+            </includes>-->
         </instrumentation>
     </configuration>
     <version>2.6</version>

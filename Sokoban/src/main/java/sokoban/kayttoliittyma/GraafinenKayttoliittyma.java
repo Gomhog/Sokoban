@@ -14,6 +14,9 @@ public class GraafinenKayttoliittyma implements Runnable {
 
     private JFrame frame;
 
+    /**
+     * Luo uuden graafisen käyttöliittymän.
+     */
     public GraafinenKayttoliittyma() {
     }
 

@@ -29,8 +29,8 @@ public class Kartta {
     public Kartta(int y, int x) {
         kokoY = y;
         kokoX = x;
-        liikkuvuus = new Liikkuvuus(y,x);
-        palikat = new Palikat(y,x);
+        liikkuvuus = new Liikkuvuus(y, x);
+        palikat = new Palikat(y, x);
         maaObjektit = new MaaObjektit();
     }
 
@@ -126,7 +126,7 @@ public class Kartta {
      */
     public boolean kytkimetOK() {
         int maara = maaObjektit.getKytkimienMaara();
-        for (int i = 0; i<maara; i++) {
+        for (int i = 0; i < maara; i++) {
             if (!palikat.onkoPalikkaa(maaObjektit.getKytkinY(i),
                     maaObjektit.getKytkinX(i))) {
                 return false;

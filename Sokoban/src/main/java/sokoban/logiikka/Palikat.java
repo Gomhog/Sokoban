@@ -62,7 +62,7 @@ public class Palikat {
         }
         int kohdeY = y + suunta.getSuuntaY();
         int kohdeX = x + suunta.getSuuntaX();
-        if (onkoPalikkaa(kohdeY,kohdeX) || 
+        if (onkoPalikkaa(kohdeY, kohdeX) || 
                 !liikkuvuus.getPaaseekoPalikka(kohdeY, kohdeX)) {
             return false;
         }

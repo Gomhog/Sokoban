@@ -32,9 +32,9 @@ public class LiikkuvuusPiirto {
      * @param g Piirtävä grafiikkaolio
      */
     public void piirra(Graphics g) {
-        for (int i = 0; i< y;i++) {
+        for (int i = 0; i < y; i++) {
             for (int j = 0; j < x; j++) {
-                piirraRuutu(i,j,g);
+                piirraRuutu(i, j, g);
             }
         }
     }
@@ -47,6 +47,6 @@ public class LiikkuvuusPiirto {
         }
         
         g.setColor(vari);
-        g.fillRect(20*x, 20*y, 20, 20);
+        g.fillRect(20 * x, 20 * y, 20, 20);
     }
 }

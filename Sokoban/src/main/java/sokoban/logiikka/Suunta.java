@@ -8,10 +8,10 @@ package sokoban.logiikka;
  * 
  */
 public enum Suunta {
-    YLOS (-1,0),
-    ALAS (1,0),
-    VASEN (0,-1),
-    OIKEA (0,1);
+    YLOS (-1, 0),
+    ALAS (1, 0),
+    VASEN (0, -1),
+    OIKEA (0, 1);
     
     private final int suuntaY;
     private final int suuntaX;

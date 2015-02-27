@@ -47,7 +47,7 @@ public class MaaObjektit {
      * @param x Kytkimen x-koordinaatti.
      */
     public void asetaKytkin(int y, int x) {
-        kytkimet.add(new int[]{y,x});
+        kytkimet.add(new int[]{y, x});
     }
     
     

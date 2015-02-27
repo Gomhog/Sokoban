@@ -45,7 +45,7 @@ public class TiedostoLukija {
         int n = lukija.nextInt();
         int m = lukija.nextInt();
         lukija.nextLine();
-        return new Kartta(n,m);
+        return new Kartta(n, m);
     }
     
     private static void luoMaaobjektitJaLiikkuvuus() throws Exception {
@@ -56,7 +56,7 @@ public class TiedostoLukija {
             }
             for (int j = 0; j < kartta.getKokoX(); j++) {
                 char valinta = luettu.charAt(j);
-                if(!rakennaKarttaa(valinta, i, j)) {
+                if (!rakennaKarttaa(valinta, i, j)) {
                     failaaminen();
                 }
             }

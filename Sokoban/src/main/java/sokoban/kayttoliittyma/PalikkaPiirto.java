@@ -34,10 +34,10 @@ public class PalikkaPiirto {
      */
     public void piirra(Graphics g) {
         g.setColor(Color.WHITE);
-        for (int i = 0; i < y;i++) {
+        for (int i = 0; i < y; i++) {
             for (int j = 0; j < x; j++) {
-                if (palikat.onkoPalikkaa(i,j)) {
-                    g.fillRect(20*j+2, 20*i+2, 16, 16);
+                if (palikat.onkoPalikkaa(i, j)) {
+                    g.fillRect(20 * j + 2, 20 * i + 2, 16, 16);
                 }
             }
         }

@@ -30,6 +30,6 @@ public class PelaajaPiirto {
         int x = kartta.getPelaajaX();
         
         g.setColor(Color.RED);
-        g.fillOval(20*x+2, 20*y+2, 16, 16);
+        g.fillOval(20 * x + 2, 20 * y + 2, 16, 16);
     }
 }

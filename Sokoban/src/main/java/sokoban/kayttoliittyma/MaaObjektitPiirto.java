@@ -37,7 +37,7 @@ public class MaaObjektitPiirto {
         int x = objektit.getUloskayntiX();
         
         g.setColor(Color.YELLOW);
-        g.fillRect(20*x, 20*y, 20, 20);
+        g.fillRect(20 * x, 20 * y, 20, 20);
     }
     
     private void piirraKytkimet(Graphics g) {
@@ -46,7 +46,7 @@ public class MaaObjektitPiirto {
             int x = objektit.getKytkinX(i);
             
             g.setColor(Color.GREEN);
-            g.fillRect(20*x, 20*y, 20, 20);
+            g.fillRect(20 * x, 20 * y, 20, 20);
         }
     }
 }

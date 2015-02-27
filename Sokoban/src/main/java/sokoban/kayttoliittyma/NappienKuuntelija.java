@@ -43,8 +43,8 @@ public class NappienKuuntelija implements ActionListener {
         } else if (ae.getSource() == restart) {
             ruutu.aloitaAlusta();
             ruutu.repaint();
-        } else if (ae.getSource() == help) {
-            
+//        } else if (ae.getSource() == help) {
+//            
         } else if (ae.getSource() == quit) {
             ruutu.lopeta();
             ruutu.repaint();

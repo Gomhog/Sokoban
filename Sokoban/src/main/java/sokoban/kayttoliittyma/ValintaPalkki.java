@@ -37,7 +37,7 @@ public class ValintaPalkki {
         JPanel palkki = luoPalkki();
         
         JList lista = luoLista(nk);
-        palkki.add(luoVierittaja(nk,lista));
+        palkki.add(luoVierittaja(nk, lista));
         
         palkki.add(luoStart(nk));
         
@@ -47,7 +47,7 @@ public class ValintaPalkki {
     
     private JPanel luoPalkki() {
         JPanel palkki = new JPanel();
-        GridLayout layout = new GridLayout(4,1);
+        GridLayout layout = new GridLayout(4, 1);
         palkki.setLayout(layout);
         palkki.setFocusable(false);
         
@@ -66,7 +66,7 @@ public class ValintaPalkki {
     private JScrollPane luoVierittaja(NappienKuuntelija nk, 
             JList lista) {
         JScrollPane vierittaja = new JScrollPane(lista);
-        vierittaja.setPreferredSize(new Dimension(100,100));
+        vierittaja.setPreferredSize(new Dimension(100, 100));
         nk.setValinta(vierittaja);
         
         return vierittaja;

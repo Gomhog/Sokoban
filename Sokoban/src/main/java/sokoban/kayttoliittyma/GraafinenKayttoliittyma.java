@@ -49,7 +49,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     }
     
     private JPanel luoSivupalkki(NappienKuuntelija nk) {
-        JPanel palkki = new JPanel(new GridLayout(3,1));
+        JPanel palkki = new JPanel(new GridLayout(3, 1));
         
         palkki.add(luoRestart(nk));
         palkki.add(luoHelp(nk));

@@ -21,6 +21,19 @@ Kent‰t tallennetaan erillisiin tiedostoihin. Helpolla syntaksilla kartan luomine
 * kent‰n voittaminen
   * pelaaja liikkuu maaliin, kun kaikkien kytkimien p‰‰ll‰ on palikka
 
+**Rakennekuvaus**
+
+* Pakkauksessa logiikka on pelin pelaamiseen tarvittavat luokat
+  * luokka Liikkuvuus sis‰lt‰‰ tiedot pelaajien ja palikoiden p‰‰syist‰ ruutuihin (eli seinist‰)
+  * luokka MaaObjektit sis‰lt‰‰ liikkumattomien kohteiden, eli ulosk‰ynnin ja kytkimien, sijainnit
+  * luokka Palikat sis‰lt‰‰ palikoiden sijainnit ja metodin niiden liikuttamiseen
+  * luokassa Kartta tapahtuu varsinainen peli: se sis‰lt‰‰ ilmentym‰n muista pakkauksen luokista ja suorittaa niiden avulla esimerkiksi pelaajan liikuttamisen
+  * Suunta on listaus nelj‰st‰ mahdollisesta liikkumissuunnasta
+* Pakkauksessa tiedostoluku on luokat lvl-tiedostojen listaamiselle ja lukemiselle
+  * TiedostoLukijan luokkakohtainen metodi luo kartan tiedostosta
+  * KarttaListaajan luokkakohtainen metodi tuottaa listan tiedostopolussa olevista kartoista
+* Pakkaus kayttoliittyma sisaltaa luokat graafiselle k‰yttˆliittym‰lle, kuuntelijat ja piirtoluokat
+
 **Myˆhempiin julkaisuihin voi tulla lis‰‰ pulmaelementtej‰**
 
 * j‰‰

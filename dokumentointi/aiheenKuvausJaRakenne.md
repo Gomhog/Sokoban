@@ -2,11 +2,17 @@
 
 Toteutetaan peli, jossa pelaaja yrittää ratkoa kenttiä. Kentät koostuvat seinistä, kytkimistä, palikoista ja uloskäynnistä. Pelaajan tehtävä on työntää palikoita niin, että kaikkien kytkimien päällä on palikka ja pelaaja pääsee uloskäynnille.
 
-Kentät tallennetaan erillisiin tiedostoihin. Mikäli mahdollista, perusajatukseen voi lisätä ylimääräisiä sääntöjä.
+Kentät tallennetaan erillisiin tiedostoihin. Helpolla syntaksilla kartan luominen onnistuu helposti, ja level-editorin luominen tulevaisuudessa ei tuota ongelmia.
 
 **Käyttäjä:** Pelaaja
 
 **Pelaajan toiminnot:**
+
+* uuden pelin aloittaminen
+  * vaatii kelvollisen karttatiedoston
+  * onnistuu, jos peli ei ole jo käynnissä
+* pelin aloittaminen alusta
+* pelin lopetus
 
 * liikkuminen
   * onnistuu, jos kyseinen ruutu on vapaa (palikka tai seinä)
@@ -15,7 +21,7 @@ Kentät tallennetaan erillisiin tiedostoihin. Mikäli mahdollista, perusajatukseen
 * kentän voittaminen
   * pelaaja liikkuu maaliin, kun kaikkien kytkimien päällä on palikka
 
-**Mahdollisia variaatioita:**
+**Myöhempiin julkaisuihin voi tulla lisää pulmaelementtejä**
 
 * jää
   * jäälle työnnetty palikka jatkaa matkaa, jos mahdollista

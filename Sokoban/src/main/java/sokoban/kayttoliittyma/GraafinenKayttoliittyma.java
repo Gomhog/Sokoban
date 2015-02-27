@@ -48,27 +48,35 @@ public class GraafinenKayttoliittyma implements Runnable {
         return frame;
     }
     
-    //TODO: Jaa tämä pienempiin metodeihin.
     private JPanel luoSivupalkki(NappienKuuntelija nk) {
         JPanel palkki = new JPanel(new GridLayout(3,1));
         
-        JButton restart = new JButton("Restart");
-        JButton help = new JButton("Help");
-        JButton quit = new JButton("Quit");
-        
-        palkki.add(restart);
-        palkki.add(help);
-        palkki.add(quit);
-        
-        restart.addActionListener(nk);
-        help.addActionListener(nk);
-        quit.addActionListener(nk);
-        
-        nk.setRestart(restart);
-        nk.setHelp(help);
-        nk.setQuit(quit);
+        palkki.add(luoRestart(nk));
+        palkki.add(luoHelp(nk));
+        palkki.add(luoQuit(nk));
         
         palkki.setFocusable(false);
         return palkki;
+    }
+    
+    private JButton luoRestart(NappienKuuntelija nk) {
+        JButton restart = new JButton("Restart");
+        restart.addActionListener(nk);
+        nk.setRestart(restart);
+        return restart;
+    }
+    
+    private JButton luoHelp(NappienKuuntelija nk) {
+        JButton help = new JButton("Help");
+        help.addActionListener(nk);
+        nk.setHelp(help);
+        return help;
+    }
+    
+    private JButton luoQuit(NappienKuuntelija nk) {
+        JButton quit = new JButton("Quit");
+        quit.addActionListener(nk);
+        nk.setQuit(quit);
+        return quit;
     }
 }

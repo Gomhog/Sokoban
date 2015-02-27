@@ -38,11 +38,7 @@ public class NappienKuuntelija implements ActionListener {
             ruutu.lataaKartta(karttalista.getSelectedValue());
             ruutu.repaint();
             if (ruutu.aktiivinen()) {
-                start.setEnabled(false);
-                restart.setEnabled(true);
-                quit.setEnabled(true);
-                valinta.setEnabled(false);
-                karttalista.setEnabled(false);
+                napitPelitilaan();
             }
         } else if (ae.getSource() == restart) {
             ruutu.aloitaAlusta();
@@ -52,11 +48,7 @@ public class NappienKuuntelija implements ActionListener {
         } else if (ae.getSource() == quit) {
             ruutu.lopeta();
             ruutu.repaint();
-            start.setEnabled(true);
-            restart.setEnabled(false);
-            quit.setEnabled(false);
-            valinta.setEnabled(true);
-            karttalista.setEnabled(true);
+            napitValintatilaan();
         }
     }
 
@@ -91,5 +83,21 @@ public class NappienKuuntelija implements ActionListener {
     public void setValinta(JScrollPane valinta) {
         this.valinta = valinta;
         valinta.setFocusable(false);
+    }
+    
+    private void napitValintatilaan() {
+        start.setEnabled(true);
+        restart.setEnabled(false);
+        quit.setEnabled(false);
+        valinta.setEnabled(true);
+        karttalista.setEnabled(true);
+    }
+    
+    private void napitPelitilaan() {
+        start.setEnabled(false);
+        restart.setEnabled(true);
+        quit.setEnabled(true);
+        valinta.setEnabled(false);
+        karttalista.setEnabled(false);
     }
 }

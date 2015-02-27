@@ -1,8 +1,6 @@
 
 package sokoban.logiikka;
 
-import java.util.Arrays;
-
 
 /**
  * Tämä luokka sisältää pelikentän. Liikkumiseen tarvittavat tiedot ovat
@@ -44,12 +42,7 @@ public class Kartta {
      * @return true, jos kenttä on ratkaistu, false, jos ei.
      */
     public boolean ratkaistu() {
-        int maara = maaObjektit.getKytkimienMaara();
-        for (int i = 0; i<maara; i++) {
-            if (palikat.onkoPalikkaa(maaObjektit.getKytkinY(i),
-                    maaObjektit.getKytkinX(i))) {
-                continue;
-            }
+        if (!kytkimetOK()) {
             return false;
         }
         
@@ -125,5 +118,20 @@ public class Kartta {
         return kokoX;
     }
     
-    
+    /**
+     * Kertoo, onko kaikilla kartan kytkimillä palikka.
+     * 
+     * @return true, jos kaikilla kytkimillä on palikka, muuten
+     * palauttaa false.
+     */
+    public boolean kytkimetOK() {
+        int maara = maaObjektit.getKytkimienMaara();
+        for (int i = 0; i<maara; i++) {
+            if (!palikat.onkoPalikkaa(maaObjektit.getKytkinY(i),
+                    maaObjektit.getKytkinX(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

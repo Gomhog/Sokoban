@@ -28,35 +28,55 @@ public class ValintaPalkki {
      * aloitusnappulalle. Kuuntelija saa täältä myös listan, josta se
      * näkee ladattavan tiedoston nimen.
      * 
-     * TODO: jaa pienempiin metodeihin
      * 
      * @param nk NappienKuuntelija, joka saa tiedon start-nappulasta ja
      * kuuntelee sitä
      * @return Muotoiltu valintapalkki
      */
     public JPanel karttojenValinta(NappienKuuntelija nk) {
+        JPanel palkki = luoPalkki();
+        
+        JList lista = luoLista(nk);
+        palkki.add(luoVierittaja(nk,lista));
+        
+        palkki.add(luoStart(nk));
+        
+        
+        return palkki;
+    }
+    
+    private JPanel luoPalkki() {
         JPanel palkki = new JPanel();
         GridLayout layout = new GridLayout(4,1);
         palkki.setLayout(layout);
         palkki.setFocusable(false);
         
+        return palkki;
+    }
+    
+    private JList luoLista(NappienKuuntelija nk) {
         JList lista = new JList(kartat);
         lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lista.setVisibleRowCount(5);
         nk.setKarttalista(lista);
         
+        return lista;
+    }
+    
+    private JScrollPane luoVierittaja(NappienKuuntelija nk, 
+            JList lista) {
         JScrollPane vierittaja = new JScrollPane(lista);
         vierittaja.setPreferredSize(new Dimension(100,100));
-        palkki.add(vierittaja);
+        nk.setValinta(vierittaja);
         
-        
+        return vierittaja;
+    }
+    
+    private JButton luoStart(NappienKuuntelija nk) {
         JButton start = new JButton("Start");
-        palkki.add(start);
         start.addActionListener(nk);
         nk.setStart(start);
         
-        nk.setValinta(vierittaja);
-        
-        return palkki;
+        return start;
     }
 }

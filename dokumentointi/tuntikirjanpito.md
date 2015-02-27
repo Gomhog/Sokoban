@@ -86,3 +86,19 @@
 * Graafinen käyttöliittymä käyttökunnossa
 * Toimii
 * Tiedostolukijan testausta
+
+# Torstai 26.2.2015
+
+4 h
+
+* Uusia tasoja
+* Luokkia siistitty
+* Cobertura saatu toimimaan
+* Demotilaisuus
+
+# Perjantai 27.2.2015
+
+5 h
+
+* Viimeisiä siistimisiä
+* CheckStyle
